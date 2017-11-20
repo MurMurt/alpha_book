@@ -1,0 +1,7 @@
+{% extends 'alfabook/base.html' %}
+
+{% block title %}Book #{{ book.id }}{% endblock %}
+{% block body %}
+    <h1><a href="/"> Alpha Book </a></h1>
+    <h3>Информация о книге {{ book.id }}</h3>
+{% endblock %}

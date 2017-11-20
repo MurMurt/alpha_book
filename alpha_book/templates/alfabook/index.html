@@ -1,0 +1,16 @@
+{% extends 'alfabook/base.html' %}
+
+{% block title %}Alpha Book{% endblock %}
+{% block body %}
+    <h1>Главная страница</h1>
+    <ul>
+        {% for book in top_books %}
+            {% if book.id %}
+{#                <li>{{ book.title }}</li>#}
+                <li> <a href="{% url 'book' book.id %}">{{ book.title }}</a> </li>
+            {% endif %}
+        {% empty %}
+            <li>Здесь нет книг</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
