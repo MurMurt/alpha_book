@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.views import View
+from django.views.generic import ListView
+from alpha_book.models import Book
 
 
 def books_list(request):
@@ -26,3 +28,9 @@ class BookPageView(View):
             }
         }
         return render(request, 'alfabook/book.html', data)
+
+
+class BookList(ListView):
+    model = Book
+    template_name = 'alfabook/books_list.html'
+    context_object_name = 'books'

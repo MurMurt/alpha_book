@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/static/css/bootstrap.css" rel="stylesheet">
     <title>{% block title %}{% endblock %}</title>
 </head>
@@ -16,7 +17,7 @@
         <h2>Menu</h2>
         <ul class="list-group">
             <li class="list-group-item">Books
-                <span class="badge">1910</span>
+                <span class="badge">{% block count %}{% endblock %}</span>
             </li>
             <li class="list-group-item">Best Sellers
                 <span class="badge">17</span>
