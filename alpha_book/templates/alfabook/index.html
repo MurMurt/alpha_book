@@ -1,9 +1,9 @@
 {% extends 'alfabook/base.html' %}
 
 {% block title %}Alpha Book{% endblock %}
-{% block count %}999{% endblock %}
 {% block body %}
     <h1>Главная страница</h1>
+    <h3>Лучшие книги</h3>
     <ul>
         {% for book in top_books %}
             {% if book.id %}

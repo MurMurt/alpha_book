@@ -1,0 +1,17 @@
+{% extends 'alfabook/auth_base.html' %}
+{% block title %}
+    Вход
+{% endblock %}
+
+{% block body %}
+    <h3>Вход</h3>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_ul }}
+        {{ login_error }}
+        <button type="submit">Войти</button>
+    </form>
+    <form action="/sign_in/">
+        <input type="submit" value="Регистрация"/>
+    </form>
+{% endblock %}

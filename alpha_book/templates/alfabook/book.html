@@ -1,6 +1,19 @@
 {% extends 'alfabook/base.html' %}
 
-{% block title %}Book #{{ book.id }}{% endblock %}
+{% block title %}Book #{{ book.title }}{% endblock %}
 {% block body %}
-    <h3>Информация о книге {{ book.id }}</h3>
+    <div class="card">
+        <div class="card-block">
+            <h3 class="card-title">{{ book.title }} Рейтинг: {{ rating }} </h3>
+            <h6 class="card-subtitle mb-2 text-muted">тег</h6>
+            <p class="card-text">Здесь должно быть описание книги</p>
+        </div>
+    </div>
+    <ul>
+        {% for comment in comments %}
+            {% include 'alfabook/comment.html' with info=comment%}
+        {% empty %}
+            <li>Коментариев пока нет</li>
+        {% endfor %}
+    </ul>
 {% endblock %}

@@ -1,10 +1,11 @@
 {% extends 'alfabook/base.html'%}
-{% block count %}{{ books.count }}{% endblock %}
 {% block body %}
     <h2>Books</h2>
     <ul>
         {% for book in books %}
-            <li>{{ book.title }}</li>
+            <li> <a href="{% url 'book' book.pk %}">{{ book.title }}</a></li>
+
+            {% include 'alfabook/book_short_info.html' with book=book %}
         {% endfor %}
     </ul>
 {% endblock %}

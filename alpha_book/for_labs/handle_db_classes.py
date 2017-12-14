@@ -32,4 +32,4 @@ with connect:
     user.show_table()
 
 
-connect.cursor.execute('SELECT * FROM users')
+# connect.cursor.execute('SELECT * FROM users')

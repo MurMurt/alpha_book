@@ -3,11 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link href="/static/css/bootstrap.css" rel="stylesheet">
+    <link href="/static/css/sstyles.css" rel="stylesheet">
+
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
+
 <div class="container-fluid">
+    <div class="top-bar">
+        <section class="top-bar-section">
+            <ul class="right">
+                {% if username %}
+                    <li><a href="/logout/">Выйти ({{ username }})</a></li>
+                {% else %}
+                    <li><a href="/login/">Войти</a></li>
+                {% endif %}
+            </ul>
+        </section>
+    </div>
     <div class="row">
         <div class="col-md-12">
             <h1><a href="/"> Alpha Book </a></h1>
@@ -16,14 +31,11 @@
     <div class="col-md-3">
         <h2>Menu</h2>
         <ul class="list-group">
-            <li class="list-group-item">Books
-                <span class="badge">{% block count %}{% endblock %}</span>
+            <li class="list-group-item"><a href="/books">Books</a>
             </li>
             <li class="list-group-item">Best Sellers
-                <span class="badge">17</span>
             </li>
             <li class="list-group-item">New Books
-                <span class="badge">3</span>
             </li>
         </ul>
     </div>
