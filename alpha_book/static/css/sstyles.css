@@ -1,3 +1,8 @@
+body {
+    min-height: 75rem;
+    padding-top: 4.5rem;
+}
+
 .card-comment {
     margin-bottom: 15px;
     padding: 10px;
@@ -5,3 +10,73 @@
     border: 2px solid;
     border-radius: 5px;
 }
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.card-comment {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #0f0f0f;
+    width: 80%;
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+}
+
+.card {
+    width: 300px;
+    border: 3px solid #2b669a;
+    margin: 5px;
+    box-shadow: 3px 3px 3px #aaa;
+    border-radius: 5px;
+    padding: 7px;
+}
+
+.card-img-top {
+    padding-left: 50px;
+    width: 200px;
+}
+
+.right-corder-container {
+    position:fixed;
+    right:20px;
+    bottom:20px;
+}
+
+
+.right-corder-container .right-corder-container-button {
+    height: 62px;
+    width: 62px;
+    border:none;
+    background-color:#28a4c9;
+    border-radius: 62px;        /*Transform the square into rectangle, sync that value with the width/height*/
+    transition: all 300ms;      /*Animation to close the button (circle)*/
+    box-shadow:2px 2px 5px rgb(25, 73, 15)  ;
+    cursor:pointer;
+}
+
+
+.right-corder-container .right-corder-container-button span {
+    font-size: 72px;
+    color:white;
+    position: absolute;
+    left: 10px;
+    top: 16px;
+    line-height: 28px;
+}
+
+

@@ -10,39 +10,39 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-
-<div class="container-fluid">
-    <div class="top-bar">
-        <section class="top-bar-section">
-            <ul class="right">
+<!-- Fixed navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Alpha Book</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/books">Books</a></li>
+                {#            <li><a href="/">Contact</a></li>#}
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
                 {% if username %}
-                    <li><a href="/logout/">Выйти ({{ username }})</a></li>
+                    <li role="presentation"><a href="/logout/">Выйти ({{ username }})</a></li>
                 {% else %}
-                    <li><a href="/login/">Войти</a></li>
+                    <li role="presentation"><a href="/login/">Войти</a></li>
                 {% endif %}
             </ul>
-        </section>
+
+{#            <form class="form-inline pull-right">#}
+{#                <input class="form-control mr-sm-2" type="text" placeholder="Search">#}
+{#                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>#}
+{#            </form>#}
+        </div><!--/.nav-collapse -->
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            <h1><a href="/"> Alpha Book </a></h1>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <h2>Menu</h2>
-        <ul class="list-group">
-            <li class="list-group-item"><a href="/books">Books</a>
-            </li>
-            <li class="list-group-item">Best Sellers
-            </li>
-            <li class="list-group-item">New Books
-            </li>
-        </ul>
-    </div>
-    <div class="col-md-9">
+</nav>
+<div class="container">
+    <div class="col-lg-12 ">
         <div>{% block body %}{% endblock %}</div>
     </div>
-
 </div>
+<script src="/static/js/modals.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -1,11 +1,40 @@
-{% extends 'alfabook/base.html'%}
+{% extends 'alfabook/base.html' %}
 {% block body %}
     <h2>Books</h2>
+
+
+    <div id="addBookBtn" class="right-corder-container">
+        <button class="right-corder-container-button">
+            <span class="short-text">+</span>
+
+        </button>
+    </div>
+    <div id="bookAddModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>lol</p>
+        </div>
+    </div>
+
     <ul>
         {% for book in books %}
-            <li> <a href="{% url 'book' book.pk %}">{{ book.title }}</a></li>
+            <div class="card col-sm-3">
+                <img class="card-img-top" src="/static/book.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h3 class="card-title">{{ book.title }}</h3>
+                    <p class="card-text">{{ book.author }}</p>
+                </div>
+                <div class="card-body">
+                    <a class="btn btn-info" role="button" href="{% url 'book' book.id %}">More</a>
+                </div>
+            </div>
 
-            {% include 'alfabook/book_short_info.html' with book=book %}
+            {#            <li><a href="{% url 'book' book.id %}">{{ book.title }}</a></li>#}
+            {#            {% include 'alfabook/book_short_info.html' with id=book.id %}#}
+
+        {% empty %}
+            <li>Здесь нет книг</li>
         {% endfor %}
     </ul>
+
 {% endblock %}
