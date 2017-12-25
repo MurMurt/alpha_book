@@ -1,0 +1,131 @@
+body {
+    min-height: 75rem;
+    padding-top: 4.5rem;
+}
+
+.book {
+    width: 400px;
+    padding: 20px 20px;
+    border: 10px solid #2b669a;
+    margin: 40px 10px;
+    /*height: 10px;*/
+}
+
+.book-img {
+    width: 60%;
+}
+
+.rating {
+    width: 150px;
+    height: 50px;
+    border: 0px solid;
+    border-radius: 10px;
+    background: #28a4c9;
+    padding: 10px;
+}
+.rating-x {
+    font-size: 150%;
+}
+
+.comments-ul{
+    padding: 10px;
+}
+
+.comments {
+    margin-left: 10px;
+    margin-top: 40px;
+    padding: 10px;
+    /*border-style: groove;*/
+    border: 2px solid #2b669a;
+    border-radius: 5px;
+}
+
+.card-comment {
+    background-color: #fefefe;
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid #0f0f0f;
+    width: 100%;
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+}
+
+.card {
+    width: 300px;
+    height: 350px;
+    border: 3px solid #2b669a;
+    margin: 15px;
+    box-shadow: 7px 7px 7px #aaa;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+
+.card-img-top {
+    left: 5%;
+
+    width: 70%;
+    height: 70%;
+}
+
+.right-corder-container {
+    position:fixed;
+    right:20px;
+    bottom:20px;
+}
+
+
+.right-corder-container .right-corder-container-button {
+    height: 62px;
+    width: 62px;
+    border:none;
+    background-color:#28a4c9;
+    border-radius: 62px;        /*Transform the square into rectangle, sync that value with the width/height*/
+    transition: all 300ms;      /*Animation to close the button (circle)*/
+    box-shadow:2px 2px 5px rgb(25, 73, 15)  ;
+    cursor:pointer;
+}
+
+
+.right-corder-container .right-corder-container-button span {
+    font-size: 72px;
+    color:white;
+    position: absolute;
+    left: 10px;
+    top: 16px;
+    line-height: 28px;
+}
+
+.x-modal {
+    padding: 100px 25px 25px 25px;
+    z-index: 99999 !important;
+}
+.hidden {
+    display: none !important;
+}
+
+.x-modal-content {
+   padding: 15px;
+}
+
+#more-btn {
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+}
