@@ -12,9 +12,8 @@
         <div class="modal-content x-modal-content">
             <span class="close">&times;</span>
             <input placeholder="text" id="add-text" type="text"/>
-            <input type="submit" id="add-submit" value="Add">
-
-
+            <input placeholder="rating" id="add-rating" type="number"/>
+            <input type="submit" id="add-submit-comment" value="Add">
         </div>
     </div>
     <div class="book col-md-4">
@@ -23,7 +22,7 @@
             <h4 class="card-title">Title: {{ book.title }}</h4>
             <p class="card-text">Author: {{ book.author }}</p>
             <div class="rating">
-                <div class="rating-x">
+                <div class="rating-x" id="book-rating">
                     Rating: {{ rating }}
                 </div>
             </div>
@@ -37,7 +36,7 @@
 {#    </div>#}
     <div class="comments col-md-6">
         <h2>Comments</h2>
-        <ul id="coments-list" class="comments-ul">
+        <ul id="comments-list" class="comments-ul">
 {#        {% for comment in comments %}#}
 {#            <div class="card-comment">#}
 {#                {% include 'alfabook/comment.html' with info=comment %}#}

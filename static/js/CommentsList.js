@@ -1,6 +1,6 @@
 function CommentsList(node) {
     this.node = node;
-    this.limit = 6;
+    this.limit = 3;
     this.offset = 0;
     this.canLoadMore = true;
     this._init();
@@ -11,12 +11,13 @@ CommentsList.prototype.incrementOffset = function () {
 };
 
 CommentsList.prototype._init = function () {
-    var url = window.location.href;
-    this.getComments(url.match(/book\/(\d+)/)[1]);
+    this.getComments();
     this.initScrollListener();
 };
 
-CommentsList.prototype.getComments = function (id) {
+CommentsList.prototype.getComments = function () {
+    var url = window.location.href;
+    var id = url.match(/book\/(\d+)/)[1];
     var _this = this;
     request('/get-comments/' + '?limit=' + this.limit + '&offset=' + this.offset + '&id=' + id , 'GET').then(function (res) {
         if (res.status !== 200) {
@@ -56,40 +57,25 @@ CommentsList.prototype.createCard = function (data) {
     });
     var rating = createElement('h4', {
         class: 'card-title'
-    }, 'Rating' + data.rating);
+    }, 'Rating: ' + data.rating);
     var text = createElement('p', {
         class: 'card-text'
     }, data.text);
-    // cardBody.appendChild(username);
+
     cardBody.appendChild(rating);
     cardBody.appendChild(text);
-
-    // var hrefContainer = createElement('div', {
-    //     class: 'card-body'
-    // });
-    // var a = createElement('a', {
-    //     class: 'btn btn-info',
-    //     id: 'more-btn',
-    //     role: 'button',
-    //     href: '/book/' + data.id
-    // }, 'More');
-    // hrefContainer.appendChild(a);
-
-    // mainContainer.appendChild(img);
     mainContainer.appendChild(cardBody);
     mainContainer.appendChild(username);
-    // mainContainer.appendChild(hrefContainer);
+
     return mainContainer;
 };
 
 CommentsList.prototype.initScrollListener = function () {
     var _this = this;
     window.onscroll = function () {
-        debugger;
         var el = document.documentElement;
         if (el.scrollTop === el.scrollHeight - el.clientHeight && _this.canLoadMore) {
             _this.incrementOffset();
-            debugger;
             _this.getComments();
         }
     }
