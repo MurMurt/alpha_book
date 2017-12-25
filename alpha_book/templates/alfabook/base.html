@@ -3,9 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link href="/static/css/bootstrap.css" rel="stylesheet">
     <link href="/static/css/sstyles.css" rel="stylesheet">
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+    <script src="/static/js/createElement.js"></script>
+    <script src="/static/js/request.js"></script>
+    <script src="/static/js/AddBookPopup.js"></script>
+    <script src="/static/js/AddCommentPopup.js"></script>
+    <script src="/static/js/getCsrf.js"></script>
+    <script src="/static/js/index.js"></script>
+    <script src="/static/js/BooksList.js"></script>
+
 
     <title>{% block title %}{% endblock %}</title>
 </head>
@@ -30,10 +37,10 @@
                 {% endif %}
             </ul>
 
-{#            <form class="form-inline pull-right">#}
-{#                <input class="form-control mr-sm-2" type="text" placeholder="Search">#}
-{#                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>#}
-{#            </form>#}
+            {#            <form class="form-inline pull-right">#}
+            {#                <input class="form-control mr-sm-2" type="text" placeholder="Search">#}
+            {#                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>#}
+            {#            </form>#}
         </div><!--/.nav-collapse -->
     </div>
 </nav>
@@ -44,5 +51,6 @@
 </div>
 <script src="/static/js/modals.js"></script>
 <script src="/static/js/bootstrap.min.js"></script>
+
 </body>
 </html>

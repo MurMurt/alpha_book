@@ -5,12 +5,19 @@ from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 
+class BookManager(models.Manager):
+    def get_books(self, limit, offset):
+        return self.all()[offset:limit + offset]
+
+
 class Book(models.Model):
     title = models.CharField(max_length=254)
     author = models.CharField(max_length=254)
     number_of_pages = models.IntegerField()
     year_of_release = models.IntegerField(default=datetime.now().year)
     top = models.BooleanField(default=False)
+    image = models.ImageField(upload_to='static/images', default='static/images/book.jpg')
+    objects = BookManager()
 
     def __str__(self):
         return "{title}: {author}".format(title=self.title, author=self.author)

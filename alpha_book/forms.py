@@ -16,3 +16,15 @@ class RegistrationForm(forms.Form):
     # email = forms.EmailField(label='Email')
     # first_name = forms.CharField(label='First name')
     # last_name = forms.CharField(label='Last name')
+
+
+class AddBookForm(forms.Form):
+    class Meta:
+        model = Book
+        # exclude = ['title', 'description', 'author', 'country']
+
+    title = forms.CharField(label='Название') # , min_length=1, max_length=100)
+    author = forms.CharField(label='Автор') # , min_length=5, max_length=35)
+    pages = forms.IntegerField(label='Количество страниц')
+    year = forms.IntegerField(label='Год')
+    image = forms.ImageField(label='Загрузить', allow_empty_file=False)

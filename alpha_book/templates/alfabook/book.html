@@ -2,18 +2,50 @@
 
 {% block title %}Book #{{ book.title }}{% endblock %}
 {% block body %}
-    <div class="card">
-        <div class="card-block">
-            <h3 class="card-title">{{ book.title }} Рейтинг: {{ rating }} </h3>
-            <h6 class="card-subtitle mb-2 text-muted">тег</h6>
-            <p class="card-text">Здесь должно быть описание книги</p>
+    <div id="add" class="right-corder-container">
+        <button class="right-corder-container-button">
+            <span class="short-text">+</span>
+
+        </button>
+    </div>
+    <div id="AddModal" class="x-modal modal">
+        <div class="modal-content x-modal-content">
+            <span class="close">&times;</span>
+            <input placeholder="text" id="add-text" type="text"/>
+            <input type="submit" id="add-submit" value="Add">
+
+
         </div>
     </div>
-    <ul>
+    <div class="book col-md-4">
+        <img class="book-img" src="/{{ book.image }}" alt="Card image cap">
+        <div class="card-text  card-body">
+            <h4 class="card-title">Title: {{ book.title }}</h4>
+            <p class="card-text">Author: {{ book.author }}</p>
+            <div class="rating">
+                <div class="rating-x">
+                    Rating: {{ rating }}
+                </div>
+            </div>
+        </div>
+    </div>
+{#    <div class="card">#}
+{#        <div class="card-block">#}
+{#            <h3 class="card-title">{{ book.title }} Рейтинг: {{ rating }} </h3>#}
+{#            <p class="card-text">Здесь должно быть описание книги</p>#}
+{#        </div>#}
+{#    </div>#}
+    <div class="comments col-md-6">
+        <h2>Comments</h2>
+        <ul class="comments-ul">
         {% for comment in comments %}
-            {% include 'alfabook/comment.html' with info=comment%}
+{#            <div class="card-comment">#}
+                {% include 'alfabook/comment.html' with info=comment %}
+{#            </div>#}
         {% empty %}
             <li>Коментариев пока нет</li>
         {% endfor %}
     </ul>
+    </div>
+
 {% endblock %}
