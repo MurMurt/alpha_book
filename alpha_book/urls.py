@@ -13,4 +13,6 @@ urlpatterns = [
     url(r'add-comment/', views.add_comment),
     url(r'get-books/', views.get_books),
     url(r'add-book/', views.add_book),
+    url(r'get-comments/', views.get_comments),
+
 ]

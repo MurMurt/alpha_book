@@ -35,8 +35,12 @@ BooksList.prototype.createCards = function (data) {
     var _this = this;
     data.forEach(function (elData) {
         var card = _this.createCard(elData);
-        _this.node.appendChild(card);
+        _this.appendCard(card);
     });
+};
+
+BooksList.prototype.appendCard = function (card) {
+    this.node.appendChild(card);
 };
 
 BooksList.prototype.createCard = function (data) {

@@ -186,13 +186,45 @@ def add_book(req):
         ext = format.split('/')[-1]
 
         img = ContentFile(base64.b64decode(imgstr), name=str(round(time.time() * 1000)) + '.' + ext)
-        try:
-            book = Book.objects.create(title=body['title'], author=body['author'],
-                                       year_of_release=int(body['year']), number_of_pages=int(body['pages']), image=img)
-        except Exception as e:
-            print(e)
+        book = Book.objects.create(title=body['title'], author=body['author'],
+                                   year_of_release=int(body['year']), number_of_pages=int(body['pages']), image=img)
         book.save()
+        result = {
+            'id': book.id,
+            'img': book.image.url
+        }
+        return create_res(json.dumps(result), 200)
+    except Exception as e:
+        result = {'err': str(e)}
+        return create_res(json.dumps(result), 400)
+    return redirect('/book/' + str(book.id))
 
-        return create_res('{}', 200)
+
+def get_comments(req):
+    try:
+        if req.method != 'GET':
+            return create_res('Only Get', 400)
+
+        limit = int(req.GET['limit'])
+        offset = int(req.GET['offset'])
+
+        if not limit and limit != 0 or not offset and offset != 0:
+            return create_res('', 400)
+
+        query_set = Comment.objects.get_comments(limit, offset, id)
+        result = list()
+        for comment in query_set:
+            p = {
+                'username': comment.user.username,
+                'rating': comment.rating,
+                'text': comment.text,
+                # 'company': book.company,
+                # 'price': ','.join(str(book.price).split('.')),
+                # 'short_info': book.short_info,
+                # 'top': book.top,
+                # 'img': book.image.url
+            }
+            result.append(p)
+        return create_res(json.dumps(result), 200)
     except Exception as e:
         return create_res(e, 400)

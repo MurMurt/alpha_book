@@ -1,5 +1,3 @@
-//TODO Изменить
-
 function AddBookPopup() {
     this.title = document.getElementById('add-title');
     this.author = document.getElementById('add-author');
@@ -28,7 +26,17 @@ AddBookPopup.prototype.setSubmitListener = function () {
             year: _this.year.value,
             pages: _this.pages.value
         }).then(function (res) {
-            console.warn(res);
+            if (res.status !== 200) {
+                throw new Error(res.json.err)
+            }
+            var data = res.json;
+            var card = window.bookList.createCard({
+                id: data.id,
+                title: _this.title.value,
+                author: _this.author.value,
+                img: data.img
+            });
+            window.bookList.node.insertBefore(card, window.bookList.node.children[0]);
             _this.addModal.style.removeProperty('display');
         }).catch(function (err) {
             alert(err);

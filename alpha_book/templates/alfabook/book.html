@@ -37,14 +37,14 @@
 {#    </div>#}
     <div class="comments col-md-6">
         <h2>Comments</h2>
-        <ul class="comments-ul">
-        {% for comment in comments %}
+        <ul id="coments-list" class="comments-ul">
+{#        {% for comment in comments %}#}
 {#            <div class="card-comment">#}
-                {% include 'alfabook/comment.html' with info=comment %}
+{#                {% include 'alfabook/comment.html' with info=comment %}#}
 {#            </div>#}
-        {% empty %}
-            <li>Коментариев пока нет</li>
-        {% endfor %}
+{#        {% empty %}#}
+{#            <li>Коментариев пока нет</li>#}
+{#        {% endfor %}#}
     </ul>
     </div>
 

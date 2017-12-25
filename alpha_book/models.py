@@ -7,7 +7,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 class BookManager(models.Manager):
     def get_books(self, limit, offset):
-        return self.all()[offset:limit + offset]
+        return self.order_by('-id')[offset:limit + offset]
 
 
 class Book(models.Model):
@@ -26,6 +26,12 @@ class Book(models.Model):
         unique_together = ('title', 'author')
 
 
+class CommentManager(models.Manager):
+    def get_comments(self, limit, offset, id):
+        book = Book.objects.get(id=id)
+        return self.filter(book=book).order_by('-id')[offset:limit + offset]
+
+
 class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     book = models.ForeignKey(Book,  on_delete=models.CASCADE)
@@ -35,6 +41,8 @@ class Comment(models.Model):
                                      MinValueValidator(1)
                                  ])
     text = models.TextField()
+    objects = CommentManager()
+
 
     class Meta:
         unique_together = ('user', 'book')
