@@ -191,8 +191,6 @@ def add_book(req):
                                        year_of_release=int(body['year']), number_of_pages=int(body['pages']), image=img)
         except Exception as e:
             print(e)
-
-        print("LOLOLOLO")
         book.save()
 
         return create_res('{}', 200)

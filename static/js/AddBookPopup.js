@@ -8,7 +8,7 @@ function AddBookPopup() {
     this.imageFile = document.getElementById('add-image');
     this.imgPrev = document.getElementById('add-img-prev');
     this.addSubmit = document.getElementById('add-submit');
-    this.addModal = document.getElementById('AddModalBook');
+    this.addModal = document.getElementById('AddModal');
     this.imgPrev.classList.add('hidden');
     this.init();
 }
